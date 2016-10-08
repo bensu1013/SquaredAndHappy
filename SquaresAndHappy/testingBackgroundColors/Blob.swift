@@ -28,8 +28,6 @@ class Blob: UIView {
     
     func meandering(_: Int = 0, min: UInt32 = 30, max: UInt32 = 70) {
         
-        print(min)
-        
         let time = Double(arc4random_uniform(200)) / 100 + 2.0
         
         var x = CGFloat(arc4random_uniform(60))
@@ -42,7 +40,7 @@ class Blob: UIView {
             self.transform = CGAffineTransform.init(scaleX: CGFloat.getRandomFloat(min: 50, max: 150),
                                                     y: CGFloat.getRandomFloat(min: 50, max: 150))
             if let pointOfTouch = self.touch {
-                print("moveme")
+    
                 let i = pointOfTouch.x - self.center.x
                 let j = pointOfTouch.y - self.center.y
                 

@@ -40,17 +40,21 @@ class ViewController: UIViewController {
             
         }
         
+        let blurEffect = UIBlurEffect(style: .light)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = self.view.frame
+        blurEffectView.isUserInteractionEnabled = false
+        
+        self.view.addSubview(blurEffectView)
+        
         let backView = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(shiftBackgroundColor), userInfo: nil, repeats: true)
         backView.fire()
-        
-        //        onlyButton.frame = CGRect(x: frameSize.width*0.4, y: frameSize.height*0.45, width: frameSize.width*0.2, height: frameSize.height*0.1)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         if let touch = touches.first {
             updateBlobTouchPoint(touch: touch.location(in: self.view))
-            print(touch.location(in: nil))
         }
     }
     
